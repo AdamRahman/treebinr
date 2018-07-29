@@ -1,0 +1,12 @@
+Package: treebinr
+Type: Package
+Title: Tree-based Binning
+Version: 0.1
+Date: 2017-09-08
+Author: Adam Rahman and Wayne Oldford
+Maintainer: Adam Rahman <a45rahma@uwaterloo.ca>
+Description: Given a point configurtion in arbitrary dimension, reduce the
+    number of points in the configuration using the tree-based binning techniques of
+    Rahman and Oldford (2018).
+License: GPL-2 | GPL-3
+RoxygenNote: 6.0.1
