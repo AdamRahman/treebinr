@@ -1,4 +1,4 @@
 # treebinr
-treebinr: data reduction by tree recursive binning
+An R package for data reduction via tree recursive binning
 
-Joint work by Adam Rahman and Wayne Oldford
+Adam Rahman and Wayne Oldford
