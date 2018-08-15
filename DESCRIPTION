@@ -1,12 +1,37 @@
 Package: treebinr
 Type: Package
-Title: Tree-based Binning
-Version: 0.1
-Date: 2017-09-08
-Author: Adam Rahman and Wayne Oldford
-Maintainer: Adam Rahman <a45rahma@uwaterloo.ca>
-Description: Given a point configurtion in arbitrary dimension, reduce the
-    number of points in the configuration using the tree-based binning techniques of
-    Rahman and Oldford (2018).
+Title: "Data Reduction via Tree-based Binning"
+Version: 0.1.0.9000
+Date: 2018-08-01
+Authors@R: c(person(given = "Adam", family = "Rahman",
+                    email = "a45rahman@uwaterloo.ca", 
+                    role = c("aut", "cre")),
+             person(given = "Wayne", family = "Oldford",
+                    email = "rwoldford@uwaterloo.ca", 
+                    role = c("aut", "cre"))
+             )
+Author: 
+    Adam Rahman [aut, cre], Wayne Oldford [aut, cre]
+Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
+URL: https://github.com/rwoldford/treebinr
+Description: The objective here is to reduce the number, n, of data points in any p-dimensional
+    point configuration to a specified (and much smaller) number, m, of the same dimensionality
+    while preserving much of both the geometric shape of the point configuration and the density of
+    the points in the p dimensional space.  Preserving one comes at some cost to preserving the other.
+    The treebinr package uses a recursive tree-binning approach to try to preserve the geometry at
+    some cost to the density; this contrasts with a simple random sampling approach which tries to
+    preserve the density but at considerable cost to the geometry.
+    In addition to particular methods, treebinr is also extendible by others who may wish to develop
+    or implement other methods.
+    Obvious applications are reducing the data size to permit more complex calculations or data visualizations
+    where the accuracy of high-density regions may be less important than, say, preserving outlying
+    and unusual geometry.
 License: GPL-2 | GPL-3
+Depends: R (>= 3.1.0)
+LazyLoad: yes
+LazyData: no
 RoxygenNote: 6.0.1
+NeedsCompilation: no
+Suggests: knitr, rmarkdown, gridExtra
+VignetteBuilder: knitr, rmarkdown
+

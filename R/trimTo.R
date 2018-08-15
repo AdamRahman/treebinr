@@ -18,12 +18,12 @@
 #' 
 #' @export
 treeTrim <- function(num, 
-                   treebinr_obj,
-                   getMeasure = function(bin, inputs){bin@measure},
-                   binMeasure,
-                   makePoint,
-                   updateBin,
-                   inputs = NULL){
+                     treebinr_obj,
+                     getMeasure = function(bin, inputs){bin@measure},
+                     binMeasure,
+                     makePoint,
+                     updateBin,
+                     inputs = NULL){
   
   points <- treebinr_obj@points
   counts <- treebinr_obj@counts

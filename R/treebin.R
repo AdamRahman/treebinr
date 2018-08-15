@@ -21,18 +21,24 @@
 #' @references
 #' 
 #' @examples
-#' X <- matrix(rnorm(2000),ncol=2)
-#'
-#' stopCriteria <- gapStop
-#' binMeasure <- gapMeasure
-#' selectBin <- gapSelect
-#' splitBin <- gapSplit
-#' boundaryTest <- gapBoundaryTest
-#' makePoint <- gapPoints
-#' inputs <- list(tau=1, numbins = 500)
-#' binInfo <- list(binRange = matrix(c(-Inf,Inf,-Inf,Inf),2,2))
-#'
-#' out <- treebin(X, stopCriteria, binMeasure, boundaryTest, selectBin, splitBin, makePoint, binInfo, inputs)
+#' set.seed(1324567)
+#' X <- data.frame(x = rnorm(2000), y = rnorm(1000))
+#' out <- treebin(X, inputs = list(tau = 1, numbins = 500))
+#' Xreduced <- as.data.frame(out@points, col.names = c("x", "y"))
+#' Xsampled <- X[sample(1:nrow(X), 500, replace = FALSE),]
+#' 
+#' savePar <- par(mfrow = c(1,3))
+#' xlim <- extendrange(X$x); ylim <- extendrange(X$y)
+#' plot(X, 
+#'      main = paste0("original data (", nrow(X)," points)"),
+#'      xlim = xlim, ylim = ylim)
+#' plot(Xreduced, 
+#'      main = paste0("reduced data (", nrow(Xreduced)," points)"),
+#'      xlim = xlim, ylim = ylim)
+#' plot(Xsampled, 
+#'      main = paste0("sampled data (", nrow(Xsampled)," points)"),
+#'      xlim = xlim, ylim = ylim)
+#' par(savePar)
 #' 
 #' @export
 treebin <- function(X, 
