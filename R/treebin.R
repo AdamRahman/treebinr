@@ -2,7 +2,7 @@
 #' 
 #' \code{treebin} bins the provided data using the tree-based binning method, as described in Rahman & Oldford (2018).
 #' 
-#' @param X The point configuration to be binned
+#' @param x The point configuration to be binned
 #' @param stopCriteria A user supplied function to compute the stopping criteria of the function
 #' @param binMeasure A user supplied function to compute the measure associated with each bin
 #' @param boundaryTest A user supplied function to test if a given point is contained in a given bin
@@ -41,29 +41,29 @@
 #' par(savePar)
 #' 
 #' @export
-treebin <- function(X, 
+treebin <- function(x, 
                     stopCriteria = gapStop, 
                     binMeasure = gapMeasure,
                     boundaryTest = gapBoundaryTest,
                     selectBin = gapSelect,
                     splitBin = gapSplit,
                     makePoint = gapPoints,
-                    binInfo = list(binRange = matrix(rep(c(-Inf,Inf), ncol(X)),2,ncol(X))),
-                    inputs = list(tau = 1, numbins = floor(nrow(X)/2))){
+                    binInfo = list(binRange = matrix(rep(c(-Inf,Inf), ncol(x)),2,ncol(x))),
+                    inputs = list(tau = 1, numbins = floor(nrow(x)/2))){
   
   #Convert the point configuration from whatever it is, to a matrix
-  X <- as.matrix(X)
+  x <- as.matrix(x)
   
   #Preliminary Definitions and Error Checking
-  n <- nrow(X)  #number of points in original configuration
-  p <- ncol(X)  #numer of dimensions in original configuration
+  n <- nrow(x)  #number of points in original configuration
+  p <- ncol(x)  #numer of dimensions in original configuration
   
   #Add the range of each dimension to the inputs list
-  dimRange = sapply(1:ncol(X), FUN = function(j){diff(range(X[,j]))})
+  dimRange = sapply(1:ncol(x), FUN = function(j){diff(range(x[,j]))})
   inputs$dimRange <- dimRange
   
   #Check that the matrix is numeric
-  if(!is.numeric(X)){
+  if(!is.numeric(x)){
     stop("X must be a numeric matrix.")
   }
   
@@ -78,7 +78,7 @@ treebin <- function(X,
   
   #Create initial bin
   initialBin <- bin(boundary = boundaryTest,
-                    contents = X,
+                    contents = x,
                     measure = NULL,
                     index = 1,
                     info = binInfo)
