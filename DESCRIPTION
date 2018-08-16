@@ -1,6 +1,6 @@
 Package: treebinr
 Type: Package
-Title: "Data Reduction via Tree-based Binning"
+Title: Data Reduction via Tree-based Binning
 Version: 0.1.0.9000
 Date: 2018-08-01
 Authors@R: c(person(given = "Adam", family = "Rahman",
@@ -11,7 +11,8 @@ Authors@R: c(person(given = "Adam", family = "Rahman",
                     role = c("aut", "cre"))
              )
 Author: 
-    Adam Rahman [aut, cre], Wayne Oldford [aut, cre]
+    Adam Rahman [aut, cre], 
+    Wayne Oldford [aut, cre]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
 URL: https://github.com/rwoldford/treebinr
 Description: The objective here is to reduce the number, n, of data points in any p-dimensional
@@ -34,4 +35,3 @@ RoxygenNote: 6.0.1
 NeedsCompilation: no
 Suggests: knitr, rmarkdown, gridExtra
 VignetteBuilder: knitr, rmarkdown
-
